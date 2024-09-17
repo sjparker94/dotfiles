@@ -1,5 +1,5 @@
 [user]
-name = Simon Parker
+name = sjparker94
 email = simon.parker1@homegroup.org.uk
 [filter "lfs"]
 clean = git-lfs clean -- %f
