@@ -61,3 +61,5 @@ youtube-banner.txt
 
 *.DS_Store
 *server exited unexpectedly
+
+.npmrc
