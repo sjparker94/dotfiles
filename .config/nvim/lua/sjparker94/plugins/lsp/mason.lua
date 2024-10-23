@@ -37,6 +37,7 @@ return {
 				"emmet_ls",
 				"prismals",
 				"gopls",
+				"pyright",
 			},
 			-- auto-install configured servers (with lspconfig)
 			automatic_installation = true, -- not the same as ensure_installed
@@ -49,6 +50,9 @@ return {
 				"stylua", -- lua formatter
 				"eslint_d", -- js linter
 				"markdown-toc", -- creates markdown table of contents
+				"isort", -- python formatter
+				"black", -- python formatter
+				"pylint",
 			},
 		})
 	end,
