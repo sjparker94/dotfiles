@@ -63,3 +63,7 @@ youtube-banner.txt
 *server exited unexpectedly
 
 .npmrc
+
+raycast/
+configstore
+github-copilot/
