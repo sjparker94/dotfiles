@@ -13,7 +13,7 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({ { import = "sjparker94.plugins" }, { import = "sjparker94.plugins.lsp" } }, {
 	install = {
-		colorscheme = { "gruvbox" },
+		colorscheme = { "catppuccin" },
 	},
 	checker = {
 		enabled = true,
