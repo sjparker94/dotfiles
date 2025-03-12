@@ -127,6 +127,14 @@ getMyPublicLocalhostIp() {
   ifconfig | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo '([0-9]*\.){3}[0-9]*' | grep -v '127.0.0.1'
 }
 
+listNodeModules() {
+    find . -name 'node_modules' -type d -prune
+}
+
+removeNodeModules() {
+    find . -name 'node_modules' -type d -prune -exec rm -rf '{}' +
+}
+
 function yy() {
 	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
 	yazi "$@" --cwd-file="$tmp"
