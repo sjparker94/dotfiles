@@ -7,7 +7,7 @@
 
 local color_fg = "#1e1e2e"
 
-print(vim.cmd(string.format([[highlight Headline1Bg guifg=%s guibg=%s]], color_fg, color1_bg)))
+-- print(vim.cmd(string.format([[highlight Headline1Bg guifg=%s guibg=%s]], color_fg, color1_bg)))
 
 return {}
 -- return {
