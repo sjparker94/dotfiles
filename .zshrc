@@ -1,3 +1,5 @@
+# Add deno completions to search path
+if [[ ":$FPATH:" != *":/Users/simon.parker1homegroup.org.uk/.zsh/completions:"* ]]; then export FPATH="/Users/simon.parker1homegroup.org.uk/.zsh/completions:$FPATH"; fi
 # Fig pre block. Keep at the top of this file.
 # # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
@@ -90,7 +92,7 @@ export EDITOR="nvim"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-autosuggestions zsh-syntax-highlighting web-search)
+plugins=(git zsh-autosuggestions zsh-syntax-highlighting web-search zsh-vi-mode)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -205,3 +207,14 @@ eval "$(starship init zsh)"
 
 export PATH=$PATH:$HOME/go/bin
 
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+
+# pnpm
+export PNPM_HOME="/Users/simon.parker1homegroup.org.uk/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
+. "/Users/simon.parker1homegroup.org.uk/.deno/env"
