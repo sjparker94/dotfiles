@@ -53,6 +53,12 @@ return {
 			telescope.extensions.live_grep_args.live_grep_args,
 			{ noremap = true, desc = "Find string in cwd with args" }
 		)
+		keymap.set(
+			"v",
+			"<leader>fv",
+			"y<ESC>:Telescope live_grep default_text=<c-r>0<CR>",
+			{ desc = "search for text highlighted in visual mode" }
+		) -- search for text highlighted in visual mode
 
 		keymap.set("n", "<leader>u", "<cmd>Telescope undo<CR>", { desc = "Telescope undo" }) -- list available help tags
 	end,
