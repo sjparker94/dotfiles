@@ -78,10 +78,28 @@ return {
 			on_attach = on_attach,
 		})
 
+		-- configure deno
+		lspconfig.denols.setup({
+			cmd = { "deno", "lsp" },
+			capabilities = capabilities,
+			on_attach = on_attach,
+			root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc"),
+			filetypes = {
+				"javascript",
+				"javascriptreact",
+				"javascript.jsx",
+				"typescript",
+				"typescriptreact",
+				"typescript.tsx",
+			},
+		})
+
 		-- configure typescript server with plugin
 		lspconfig["ts_ls"].setup({
 			capabilities = capabilities,
 			on_attach = on_attach,
+			root_dir = lspconfig.util.root_pattern("package.json"),
+			single_file_support = false,
 		})
 
 		-- configure eslint server
