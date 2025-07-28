@@ -11,7 +11,7 @@ return {
 					jump_prev = "[[",
 					jump_next = "]]",
 					accept = "<CR>",
-					refresh = "gr",
+					refresh = "<leader>r",
 					open = "<M-CR>",
 					close = "<ESC>",
 				},
