@@ -1,3 +1,9 @@
+local FT_TO_LANG_ALIASES = {
+	dotenv = "bash",
+	javascriptreact = "jsx",
+	typescriptreact = "tsx",
+}
+
 return {
 	{
 		"nvim-treesitter/nvim-treesitter",
@@ -57,6 +63,11 @@ return {
 
 			-- enable nvim-ts-context-commentstring plugin for commenting tsx and jsx
 			require("ts_context_commentstring").setup({})
+
+			-- Aliases
+			for ft, parser in pairs(FT_TO_LANG_ALIASES) do
+				vim.treesitter.language.register(parser, ft)
+			end
 		end,
 	},
 }
