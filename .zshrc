@@ -1,5 +1,10 @@
 # Add deno completions to search path
 if [[ ":$FPATH:" != *":/Users/simon.parker1homegroup.org.uk/.zsh/completions:"* ]]; then export FPATH="/Users/simon.parker1homegroup.org.uk/.zsh/completions:$FPATH"; fi
+
+# fpath=(~/.zsh $fpath)
+# autoload -Uz compinit
+# compinit -u
+
 # Fig pre block. Keep at the top of this file.
 # # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
@@ -225,4 +230,4 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
-. "/Users/simon.parker1homegroup.org.uk/.deno/env"
+# . "/Users/simon.parker1homegroup.org.uk/.deno/env"
