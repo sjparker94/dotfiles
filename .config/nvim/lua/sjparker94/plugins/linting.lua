@@ -6,10 +6,10 @@ return {
 		local lint = require("lint")
 
 		lint.linters_by_ft = {
-			javascript = { "deno", "eslint_d" },
-			typescript = { "deno", "eslint_d" },
-			javascriptreact = { "deno", "eslint_d" },
-			typescriptreact = { "deno", "eslint_d" },
+			javascript = { "eslint_d" },
+			typescript = { "eslint_d" },
+			javascriptreact = { "eslint_d" },
+			typescriptreact = { "eslint_d" },
 			svelte = { "eslint_d" },
 			python = { "pylint" },
 		}
@@ -29,9 +29,10 @@ return {
 			lint.try_lint()
 		end, { desc = "Trigger linting for current file" })
 		vim.keymap.set("n", "<leader>gl", function()
-			local linters = require("lint").get_running()
+			local linters = lint.get_running()
+			print("hello world")
 			print(table.concat(linters, ", "))
-			-- return "󱉶 " .. table.concat(linters, ", ")
+			return "󱉶 " .. table.concat(linters, ", ")
 		end, { desc = "Get current running linter" })
 	end,
 }
