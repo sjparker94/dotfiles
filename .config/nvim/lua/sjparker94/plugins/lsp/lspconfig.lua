@@ -84,6 +84,12 @@ return {
 			capabilities = capabilities,
 			on_attach = on_attach,
 			root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc"),
+			cmd_env = { NO_COLOR = true },
+			root_markers = { "deno.json" },
+			workspace_required = true,
+			init_options = {
+				lint = true,
+			},
 			filetypes = {
 				"javascript",
 				"javascriptreact",
@@ -98,10 +104,27 @@ return {
 		lspconfig["ts_ls"].setup({
 			capabilities = capabilities,
 			on_attach = on_attach,
-			root_dir = lspconfig.util.root_pattern("package.json"),
+			-- root_dir = lspconfig.util.root_pattern("package.json"),
+			root_dir = function(...)
+				return util.root_pattern(".git")(...)
+			end,
+			-- root_markers = { "package.json" },
 			single_file_support = false,
+			workspace_required = true,
 		})
 
+		local customizations = {
+			{ rule = "style/*", severity = "off", fixable = true },
+			{ rule = "format/*", severity = "off", fixable = true },
+			{ rule = "*-indent", severity = "off", fixable = true },
+			{ rule = "*-spacing", severity = "off", fixable = true },
+			{ rule = "*-spaces", severity = "off", fixable = true },
+			{ rule = "*-order", severity = "off", fixable = true },
+			{ rule = "*-dangle", severity = "off", fixable = true },
+			{ rule = "*-newline", severity = "off", fixable = true },
+			{ rule = "*quotes", severity = "off", fixable = true },
+			{ rule = "*semi", severity = "off", fixable = true },
+		}
 		-- configure eslint server
 		lspconfig.eslint.setup({
 			--- ...
@@ -111,6 +134,10 @@ return {
 					command = "EslintFixAll",
 				})
 			end,
+			settings = {
+				-- Silent the stylistic rules in you IDE, but still auto fix them
+				rulesCustomizations = customizations,
+			},
 		})
 
 		-- configure css server
@@ -121,6 +148,9 @@ return {
 
 		-- configure tailwindcss server
 		lspconfig["tailwindcss"].setup({
+			root_dir = function(...)
+				return util.root_pattern(".git")(...)
+			end,
 			capabilities = capabilities,
 			on_attach = on_attach,
 			settings = {
