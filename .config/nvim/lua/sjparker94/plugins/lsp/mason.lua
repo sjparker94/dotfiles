@@ -1,65 +1,3 @@
--- return {
--- 	"williamboman/mason.nvim",
--- 	dependencies = {
--- 		"williamboman/mason-lspconfig.nvim",
--- 		"WhoIsSethDaniel/mason-tool-installer.nvim",
--- 	},
--- 	config = function()
--- 		-- import mason
--- 		local mason = require("mason")
---
--- 		-- import mason-lspconfig
--- 		local mason_lspconfig = require("mason-lspconfig")
---
--- 		local mason_tool_installer = require("mason-tool-installer")
---
--- 		-- enable mason and configure icons
--- 		mason.setup({
--- 			ui = {
--- 				icons = {
--- 					package_installed = "✓",
--- 					package_pending = "➜",
--- 					package_uninstalled = "✗",
--- 				},
--- 			},
--- 		})
---
--- 		mason_lspconfig.setup({
--- 			-- list of servers for mason to install
--- 			ensure_installed = {
--- 				"ts_ls",
--- 				"html",
--- 				"cssls",
--- 				"tailwindcss",
--- 				"svelte",
--- 				"lua_ls",
--- 				"graphql",
--- 				"emmet_ls",
--- 				"prismals",
--- 				"gopls",
--- 				"pyright",
--- 				"eslint",
--- 				-- "deno",
--- 			},
--- 			-- auto-install configured servers (with lspconfig)
--- 			automatic_installation = true, -- not the same as ensure_installed
--- 		})
--- vim.list_extend(opts.ensure_installed, { "markdownlint-cli2", "marksman", "markdown-toc" })
---
--- 		mason_tool_installer.setup({
--- 			ensure_installed = {
--- 				"prettier", -- prettier formatter
--- 				"stylua", -- lua formatter
--- 				"eslint_d", -- js linter
--- 				"markdown-toc", -- creates markdown table of contents
--- 				"isort", -- python formatter
--- 				"black", -- python formatter
--- 				"pylint",
--- 			},
--- 		})
--- 	end,
--- }
-
 return {
 	{
 		"williamboman/mason.nvim",
@@ -83,9 +21,9 @@ return {
 				"html-lsp", -- HTML LSP
 				"css-lsp", -- CSS LSP
 				"vue-language-server", -- Vue LSP
-				"svelte", -- Svelte LSP
+				"svelte-language-server", -- Svelte LSP
 				"pyright", -- Python LSP
-				"prismals", -- Prisma LSP
+				"prisma-language-server", -- Prisma LSP
 
 				-- Formatters (for conform.nvim and general use)
 				"stylua",
@@ -102,6 +40,7 @@ return {
 				"golangci-lint",
 				"eslint_d",
 				"luacheck", -- Lua linting
+
 				-- "pint", -- Laravel Pint for PHP (formatting & linting)
 
 				-- Additional useful tools
@@ -126,8 +65,6 @@ return {
 		config = function(_, opts)
 			-- PATH is handled by core.mason-path for consistency
 			require("mason").setup(opts)
-
-			local mason_tool_installer = require("mason-tool-installer")
 
 			-- Auto-install ensure_installed tools with better error handling
 			local mr = require("mason-registry")
@@ -156,20 +93,6 @@ return {
 			else
 				ensure_installed()
 			end
-
-			-- Setup mason-tool-installer
-			-- This is useful for installing tools that are not LSP servers
-			mason_tool_installer.setup({
-				ensure_installed = {
-					"prettier", -- prettier formatter
-					"stylua", -- lua formatter
-					"eslint_d", -- js linter
-					"markdown-toc", -- creates markdown table of contents
-					"isort", -- python formatter
-					"black", -- python formatter
-					"pylint",
-				},
-			})
 		end,
 	},
 }
