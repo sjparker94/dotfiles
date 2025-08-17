@@ -22,25 +22,27 @@ return {
 					use_nvim_cmp_as_default = false,
 					nerd_font_variant = "normal",
 				},
+				fuzzy = {
+					implementation = "prefer_rust_with_warning",
+				},
 				sources = {
 					-- per_filetype = {
 					--     codecompanion = { "codecompanion" },
 					-- },
 					default = { "lazydev", "lsp", "path", "snippets", "buffer", "cmdline" },
+					per_filetype = {
+						sql = { "snippets", "dadbod", "buffer" },
+					},
 					providers = {
-						lazydev = {
-							name = "LazyDev",
-							module = "lazydev.integrations.blink",
-							score_offset = 100,
-						},
 						cmdline = {
-							min_keyword_length = 2,
+							min_keyword_length = 3,
 						},
 						lazydev = {
 							name = "LazyDev",
 							module = "lazydev.integrations.blink",
 							score_offset = 100,
 						},
+						dadbod = { name = "Dadbod", module = "vim_dadbod_completion.blink" },
 					},
 				},
 				keymap = {
@@ -82,11 +84,23 @@ return {
 					-- 				end, { "i", "s" }),
 				},
 				cmdline = {
-					enabled = false,
-					completion = { menu = { auto_show = true } },
-					keymap = {
-						["<CR>"] = { "accept_and_enter", "fallback" },
+					enabled = true,
+					keymap = { preset = "inherit" },
+					completion = {
+						menu = {
+							auto_show = function(ctx)
+								-- only show cmdline completion when typing a command
+								-- command must be longer than 2 characters - configured in providers.cmdline.min_keyword_length
+								-- this is to avoid showing cmdline completion when typing in the command line for searching etc.
+								return vim.fn.getcmdtype() == ":"
+								-- enable for inputs as well, with:
+								-- or vim.fn.getcmdtype() == '@'
+							end,
+						},
 					},
+					-- keymap = {
+					-- 	["<CR>"] = { "accept_and_enter", "fallback" },
+					-- },
 				},
 				completion = {
 					menu = {
