@@ -117,21 +117,21 @@ alias zshconfig="nvim ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # kill process on port
-killPort() {
+function killPort() {
   lsof -i TCP:$1 | awk '/LISTEN/{print $2}' | xargs kill -9
   echo "Port" $1 "found and killed."
 }
 
 # get the localhost address to use on other devid
-getMyPublicLocalhostIp() {
+function getMyPublicLocalhostIp() {
   ifconfig | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo '([0-9]*\.){3}[0-9]*' | grep -v '127.0.0.1'
 }
 
-listNodeModules() {
+function listNodeModules() {
     find . -name 'node_modules' -type d -prune
 }
 
-removeNodeModules() {
+function removeNodeModules() {
     find . -name 'node_modules' -type d -prune -exec rm -rf '{}' +
 }
 
@@ -143,6 +143,8 @@ function yy() {
 	fi
 	rm -f -- "$tmp"
 }
+
+export CONFIG_DIR="$HOME/dotfiles/.config/lazygit"
 
 alias vim="nvim"
 alias lg="lazygit"
@@ -156,6 +158,8 @@ alias vpnDisconnect="bash ~/./vpnDisconnect.sh"
 
 alias dotfiles="nvim ~/dotfiles"
 alias nvimconfig="nvim ~/dotfiles/.config/nvim"
+
+alias copy_env="~/dev/playground/util-scripts/copy_envs.sh"
 
 # NVM
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
@@ -225,4 +229,4 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
-. "/Users/simon.parker1homegroup.org.uk/.deno/env"
+# . "/Users/simon.parker1homegroup.org.uk/.deno/env"
