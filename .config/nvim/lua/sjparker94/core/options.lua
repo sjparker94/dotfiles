@@ -40,13 +40,13 @@ vim.opt.signcolumn = "yes"
 vim.opt.splitright = true
 vim.opt.splitbelow = true
 
-vim.lsp.enable({
-	"astro",
-	"buf_ls",
-	"deno",
-	"emmet_language_server",
-	"gopls",
-	"lua_ls",
-	"tailwindcss",
-	"ts_ls",
-})
+-- vim.lsp.enable({
+-- 	"astro",
+-- 	"buf_ls",
+-- 	"deno",
+-- 	"emmet_language_server",
+-- 	"gopls",
+-- 	"lua_ls",
+-- 	"tailwindcss",
+-- 	"ts_ls",
+-- })

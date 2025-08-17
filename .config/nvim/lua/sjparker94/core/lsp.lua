@@ -1,15 +1,42 @@
 -- Mason PATH is handled by core.mason-path
 vim.lsp.enable({
-	"lua-ls",
-	"gopls",
-	"zls",
-	"ts-ls",
-	-- "rust-analyzer",
-	"intelephense",
-	"tailwindcss",
-	"html-ls",
-	"css-ls",
-	"vue-ls",
+	"lua_ls", -- Lua LSP
+	"gopls", -- Go LSP
+	-- "zls", -- Zig LSP
+	"ts_ls", -- TypeScript LSP
+	-- "rust-analyzer", -- Rust LSP
+	-- "intelephense", -- PHP LSP
+	"tailwindcss", -- Tailwind CSS LSP
+	-- "html-lsp", -- HTML LSP
+	-- "vue-language-server", -- Vue LSP
+	"svelte", -- Svelte LSP
+	"pyright", -- Python LSP
+	-- "prisma-language-server", -- Prisma LSP
+	"denols",
+	"cssls",
+	"eslint",
+	-- "svelte",
+	"pyright",
+	"astro", -- Astro LSP
+	"emmet_language_server", -- Emmet LSP
+	"bashls", -- Bash LSP
+	"jsonls", -- JSON LSP
+	"prismals", -- Prisma LSP
+})
+
+local base_on_attach = vim.lsp.config.eslint.on_attach
+vim.lsp.config("eslint", {
+	on_attach = function(client, bufnr)
+		if not base_on_attach then
+			return
+		end
+
+		base_on_attach(client, bufnr)
+		vim.api.nvim_create_autocmd("BufWritePre", {
+			buffer = bufnr,
+			command = "LspEslintFixAll",
+		})
+	end,
 })
 
 -- LSP servers are automatically managed by Mason

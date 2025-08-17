@@ -1,9 +1,6 @@
 return {
 	{
 		"williamboman/mason.nvim",
-		dependencies = {
-			"WhoIsSethDaniel/mason-tool-installer.nvim",
-		},
 		lazy = false, -- Load immediately to ensure PATH is set
 		cmd = "Mason",
 		keys = { { "<leader>cm", "<cmd>Mason<cr>", desc = "Mason" } },
@@ -24,10 +21,13 @@ return {
 				"svelte-language-server", -- Svelte LSP
 				"pyright", -- Python LSP
 				"prisma-language-server", -- Prisma LSP
+				"bash-language-server",
+				"marksman",
 
 				-- Formatters (for conform.nvim and general use)
 				"stylua",
 				"goimports",
+
 				-- Note: gofmt comes with Go installation, not managed by Mason
 				"prettier",
 				"black",
