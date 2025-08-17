@@ -1,13 +1,13 @@
 ---@brief
 ---
---- https://github.com/olrtg/emmet-language-server
+--- https://github.com/aca/emmet-ls
 ---
 --- Package can be installed via `npm`:
 --- ```sh
---- npm install -g @olrtg/emmet-language-server
+--- npm install -g emmet-ls
 --- ```
 return {
-	cmd = { "emmet-language-server", "--stdio" },
+	cmd = { "emmet-ls", "--stdio" },
 	filetypes = {
 		"astro",
 		"css",

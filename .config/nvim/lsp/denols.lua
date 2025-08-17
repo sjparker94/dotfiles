@@ -74,7 +74,7 @@ return {
 		"typescriptreact",
 		"typescript.tsx",
 	},
-	root_markers = { "deno.json", "deno.jsonc", ".git" },
+	root_markers = { "deno.json", "deno.jsonc" },
 	settings = {
 		deno = {
 			enable = true,
@@ -92,6 +92,7 @@ return {
 		["textDocument/typeDefinition"] = denols_handler,
 		["textDocument/references"] = denols_handler,
 	},
+	workspace_required = true,
 	on_attach = function(client, bufnr)
 		vim.api.nvim_buf_create_user_command(bufnr, "LspDenolsCache", function()
 			client:exec_cmd({
