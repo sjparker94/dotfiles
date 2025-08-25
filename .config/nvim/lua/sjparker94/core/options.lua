@@ -39,3 +39,14 @@ vim.opt.signcolumn = "yes"
 -- split windows
 vim.opt.splitright = true
 vim.opt.splitbelow = true
+
+-- vim.lsp.enable({
+-- 	"astro",
+-- 	"buf_ls",
+-- 	"deno",
+-- 	"emmet_language_server",
+-- 	"gopls",
+-- 	"lua_ls",
+-- 	"tailwindcss",
+-- 	"ts_ls",
+-- })

@@ -38,8 +38,8 @@ vim.keymap.set("n", "<leader>sx", ":close<CR>") -- close current split window
 
 vim.keymap.set("n", "<leader>to", ":tabnew<CR>") -- open new tab
 vim.keymap.set("n", "<leader>tx", ":BufferClose<CR>") -- close current tab
-vim.keymap.set("n", "<leader>tn", ":BufferNext<CR>") --  go to next tab
-vim.keymap.set("n", "<leader>tp", ":BufferPrevious<CR>") --  go to previous tab
+vim.keymap.set("n", "<leader>tn", ":tabnext<CR>") --  go to next tab
+vim.keymap.set("n", "<leader>tp", ":tabprevious<CR>") --  go to previous tab
 
 -- nvim-tree
 vim.keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>") -- toggle file explorer

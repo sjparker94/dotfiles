@@ -1,3 +1,5 @@
+require("sjparker94.core.mason-path")
+require("sjparker94.core.lsp")
 require("sjparker94.core.options")
 require("sjparker94.core.keymaps")
 require("sjparker94.core.filetypes")

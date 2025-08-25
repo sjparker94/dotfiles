@@ -1,0 +1,26 @@
+lastupdatecheck: 0
+recentrepos:
+    - /Users/simon.parker1homegroup.org.uk/dotfiles
+    - /Users/simon.parker1homegroup.org.uk/dev/corporate-website/hg-repairs-diagnostic-tool-frontend
+    - /Users/simon.parker1homegroup.org.uk/dev/mha/hg-mha-front-end
+    - /Users/simon.parker1homegroup.org.uk/dev/hg-utils/hg-utils-local-mssql-db
+    - /Users/simon.parker1homegroup.org.uk/dev/mha/hg-mha-prisma-db
+    - /Users/simon.parker1homegroup.org.uk/dev/corporate-website/hg-corporate-website-proxy
+    - /Users/simon.parker1homegroup.org.uk/dev/corporate-website/hg-corporate-website-file-upload
+    - /Users/simon.parker1homegroup.org.uk/dev/corporate-website/hg-corporate-website-frontend
+    - /Users/simon.parker1homegroup.org.uk/dev/corporate-website/hg-corporate-website-maintenance-page
+    - /Users/simon.parker1homegroup.org.uk/dev/corporate-website/corporate-website-devops
+    - /Users/simon.parker1homegroup.org.uk/dev/playground/util-scripts
+    - /Users/simon.parker1homegroup.org.uk/dev/allocations/hg-allocations-application-form
+    - /Users/simon.parker1homegroup.org.uk/dev/corporate-website/hg-corporate-website-heartcore-related-content-extension
+startuppopupversion: 5
+lastversion: 0.53.0
+customcommandshistory: []
+hidecommandlog: false
+ignorewhitespaceindiffview: true
+diffcontextsize: 3
+renamesimilaritythreshold: 50
+localbranchsortorder: recency
+remotebranchsortorder: alphabetical
+gitlogorder: topo-order
+gitlogshowgraph: always

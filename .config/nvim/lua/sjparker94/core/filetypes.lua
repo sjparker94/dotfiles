@@ -1,6 +1,14 @@
 vim.filetype.add({
 	extension = {
 		env = "dotenv",
+		mjml = "html",
+	},
+	filename = {
+		[".env"] = "dotenv",
+		["tsconfig.json"] = "jsonc",
+	},
+	pattern = {
+		["%.env%.[%w_.-]+"] = "dotenv",
 	},
 	filename = {
 		[".dockerignore"] = "gitignore",
@@ -9,7 +17,7 @@ vim.filetype.add({
 		[".ignore"] = "gitignore",
 		[".yamlfmt"] = "yaml",
 		[".yamllint"] = "yaml",
-		["project.json"] = "jsonc", -- assuming nx project.json
+		["project.json"] = "jsonc",
 	},
 	pattern = {
 		["compose.y.?ml"] = "yaml.docker-compose",
