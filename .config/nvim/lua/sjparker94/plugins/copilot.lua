@@ -20,6 +20,7 @@ return {
 						position = "bottom", -- | top | left | right | horizontal | vertical
 						ratio = 0.4,
 					},
+
 				},
 				suggestion = {
 					enabled = true,

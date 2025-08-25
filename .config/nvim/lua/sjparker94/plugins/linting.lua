@@ -29,9 +29,10 @@ return {
 			lint.try_lint()
 		end, { desc = "Trigger linting for current file" })
 		vim.keymap.set("n", "<leader>gl", function()
-			local linters = require("lint").get_running()
+			local linters = lint.get_running()
+			print("hello world")
 			print(table.concat(linters, ", "))
-			-- return "󱉶 " .. table.concat(linters, ", ")
+			return "󱉶 " .. table.concat(linters, ", ")
 		end, { desc = "Get current running linter" })
 	end,
 }
